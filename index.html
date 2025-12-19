@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Favicons -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/site.webmanifest">
+
+  <!-- Loading Screen Styles -->
+  <style>
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #05060a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .loader-wrap {
+      position: relative;
+      width: 140px;
+      height: 140px;
+    }
+
+    .loader-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(124,124,255,0.15);
+      border-top-color: #7c7cff;
+      animation: spin 2.8s linear infinite;
+    }
+
+    .loader-wrap img {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 72px;
+      height: 72px;
+      animation: pulse 2.8s ease-in-out infinite;
+      filter: drop-shadow(0 0 30px rgba(124,124,255,0.7));
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(0.9); opacity: 0.6; }
+      50%  { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.6; }
+    }
+  </style>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nightwave Records</title>
+  <meta name="description" content="Nightwave Records — Independent electronic & alternative music label." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-wrap">
+      <div class="loader-ring"></div>
+      <img src="assets/images/android-chrome-512x512.png" alt="Nightwave Records Loading">
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="logo">NIGHTWAVE</div>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#artists">Artists</a>
+      <a href="#releases">Releases</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Nightwave Records</h1>
+    <p>Shaping the future of underground sound.</p>
+    <a href="#releases" class="btn">Enter The Night</a>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About</h2>
+    <p>
+      Nightwave Records is an independent label dedicated to electronic,
+      alternative, and nocturnal soundscapes.
+    </p>
+  </section>
+
+  <section id="artists" class="section grid">
+    <div class="card">Neon Veil</div>
+    <div class="card">Echoes After Dark</div>
+    <div class="card">Lunar Static</div>
+  </section>
+
+  <section id="releases" class="section grid">
+    <div class="card">Midnight Frequency</div>
+    <div class="card">Signals From Nowhere</div>
+    <div class="card">After Hours Protocol</div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>contact@nightwaverecords.fun</p>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> Nightwave Records
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- Loader Script -->
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+
+      // cinematic delay
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 1.2s ease';
+        setTimeout(() => loader.remove(), 1200);
+      }, 900);
+    });
+  </script>
+
+</body>
+</html>
